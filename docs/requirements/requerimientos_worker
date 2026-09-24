@@ -17,6 +17,7 @@ El sistema de OficioYa debe tener la capacidad de:
 8. Permitir al contratante consultar el perfil de un trabajador (oficios, tarifa, cobertura, disponibilidad).
 9. Exponer una consulta de trabajadores para que otros dominios puedan filtrarlos por oficio, zona, tarifa y disponibilidad.
 
+# 1.2 Requerimientos no funcionales
 
 # El sistema de OficioYa debe tener:
 
