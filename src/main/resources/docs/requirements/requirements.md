@@ -1,3 +1,4 @@
+
 ## 1. Lista general de requerimientos
 
 El sistema de OficioYa tiene los siguientes requerimientos para el dominio Worker:
@@ -143,6 +144,7 @@ El sistema de OficioYa debe tener la capacidad de:
 | **Precondiciones** | Para que el sistema cumpla con este requerimiento, OficioYa debe tener previamente trabajadores registrados con oficios, tarifa, cobertura y disponibilidad definidos (RF-03, RF-04, RF-06, RF-07). |
 | **Actor** | Dominio consumidor (otros dominios del sistema) |
 | **Flujo principal** | 1. El dominio consumidor envía una consulta indicando uno o más filtros (oficio, zona, tarifa, disponibilidad).<br>2. El sistema valida los parámetros recibidos.<br>3. El sistema busca los trabajadores que cumplen los filtros.<br>4. El sistema retorna la lista de trabajadores coincidentes. |
-| **Diagrama de caso de uso** | ** |
+| **Diagrama de caso de uso** | <img width="500" height="132" alt="Requerimiento9" src="https://github.com/user-attachments/assets/5eeb028c-0594-4641-906b-207575f5ad1e" />
+|
 | **Poscondiciones** | El dominio consumidor recibe la lista de trabajadores que cumplen los criterios de búsqueda. |
 
