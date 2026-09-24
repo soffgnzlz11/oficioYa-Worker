@@ -1,0 +1,28 @@
+### Requerimientos del Sistema - Dominio Worker
+## 1. Lista general de requerimientos
+
+El sistema de OficioYa tiene los siguientes requerimientos para el dominio Worker:
+
+# 1.1 Requerimientos funcionales
+
+El sistema de OficioYa debe tener la capacidad de:
+
+1. Gestionar el catálogo general de oficios (crear, editar, listar, eliminar).
+2. Definir categorías especiales de oficios con campos propios (profesores, cuidadores de mascotas, técnicos).
+3. Asociar a un trabajador su oficio principal y sus oficios secundarios.
+4. Registrar la tarifa aproximada de un trabajador por cada oficio que ofrece.
+5. Definir las zonas de cobertura (barrios) disponibles en la plataforma.
+6. Permitir al trabajador definir su área de cobertura dentro de esas zonas.
+7. Permitir al trabajador especificar su disponibilidad semanal y el estado "disponible ahora".
+8. Permitir al contratante consultar el perfil de un trabajador (oficios, tarifa, cobertura, disponibilidad).
+9. Exponer una consulta de trabajadores para que otros dominios puedan filtrarlos por oficio, zona, tarifa y disponibilidad.
+
+
+# El sistema de OficioYa debe tener:
+
+1. Documentar cómo otros dominios pueden consultar la información de trabajadores, para que si algo cambia en Worker, no se rompa lo que usan otros equipos.
+2. Actualización constante del estado de disponibilidad del trabajador.
+3. Se debe poder agregar nuevos oficios o categorías fácilmente sin tener que rediseñar todo el sistema cada vez que se necesite uno nuevo.
+4.  Trazabilidad de los cambios realizados sobre tarifas, cobertura y disponibilidad del trabajador.
+5. Las consultas que hacen otros dominios deben responde sin demoras que afecten la experiencia de búsqueda.
+6. El formulario para registrar oficios, tarifa y cobertura debe ser fácil de usar para todo tipo de persona. 
