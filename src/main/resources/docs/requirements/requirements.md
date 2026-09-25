@@ -24,9 +24,8 @@ El sistema de OficioYa debe tener:
 1. Documentar cómo otros dominios pueden consultar la información de trabajadores, para que si algo cambia en Worker, no se rompa lo que usan otros equipos.
 2. Actualización constante del estado de disponibilidad del trabajador.
 3. Se debe poder agregar nuevos oficios o categorías fácilmente sin tener que rediseñar todo el sistema cada vez que se necesite uno nuevo.
-4.  Trazabilidad de los cambios realizados sobre tarifas, cobertura y disponibilidad del trabajador.
 5. Las consultas que hacen otros dominios deben responde sin demoras que afecten la experiencia de búsqueda.
-6. El formulario para registrar oficios, tarifa y cobertura debe ser fácil de usar para todo tipo de persona.
+6. El formulario para registrar oficios, tarifa y cobertura debe ser fácil de usar.
 
 ## 2. Diagramas de caso de uso
 
