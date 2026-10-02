@@ -26,6 +26,9 @@ El sistema de OficioYa debe tener:
 3. Se debe poder agregar nuevos oficios o categorías fácilmente sin tener que rediseñar todo el sistema cada vez que se necesite uno nuevo.
 5. Las consultas que hacen otros dominios deben responde sin demoras que afecten la experiencia de búsqueda.
 6. El formulario para registrar oficios, tarifa y cobertura debe ser fácil de usar.
+7. Cobertura de pruebas unitarias minima del 80%.
+8. La interfaz de búsqueda debe ser responisve.
+9. El sistema debe registrar logs de cada búsqueda realizada.
 
 ## 2. Diagramas de caso de uso
 
