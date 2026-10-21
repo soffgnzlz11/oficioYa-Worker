@@ -160,13 +160,8 @@ El sistema de OficioYa debe tener:
 | **Descripción** | El sistema debe permitir al trabajador registrar su disponibilidad como una fecha fija puntual o como un patrón repetitivo (ej. todos los lunes) válido durante un periodo específico, de modo que no tenga que volver a registrarla cada semana a menos que quiera cambiarla. |
 | **Precondiciones** | 	Para que el sistema cumpla con este requerimiento, el trabajador debe tener su perfil profesional creado (RF-07 ya definido). |
 | **Actor** | Trabajador |
-| **Flujo principal** | 1. El actor elige si la disponibilidad que va a registrar es fija (un solo día) o repetitiva (un día de la semana).
-2. Si es fija, el actor ingresa la fecha, hora de inicio y hora de fin.
-3. Si es repetitiva, el actor ingresa el día de la semana, la hora de inicio y fin, y el periodo (fecha de inicio y, opcionalmente, fecha de fin) durante el cual aplica la repetición.
-4. El sistema guarda la disponibilidad sin requerir que el trabajador la vuelva a registrar cada semana.
-5. El trabajador puede, en cualquier momento, agregar una excepción puntual (ej. un lunes específico distinto a su patrón habitual). |
-| **Diagrama de caso de uso** | 
-|
+| **Flujo principal** | 1. El actor elige si la disponibilidad que va a registrar es fija (un solo día) o repetitiva (un día de la semana). 2. Si es fija, el actor ingresa la fecha, hora de inicio y hora de fin. 3. Si es repetitiva, el actor ingresa el día de la semana, la hora de inicio y fin, y el periodo (fecha de inicio y, opcionalmente, fecha de fin) durante el cual aplica la repetición. 4. El sistema guarda la disponibilidad sin requerir que el trabajador la vuelva a registrar cada semana. 5. El trabajador puede, en cualquier momento, agregar una excepción puntual (ej. un lunes específico distinto a su patrón habitual). |
+| **Diagrama de caso de uso** | aun no |
 | **Poscondiciones** | Se espera como resultado que la disponibilidad del trabajador quede reflejada correctamente ya sea como una fecha única o como un patrón recurrente vigente dentro del periodo definido, sin necesidad de actualización manual semanal. |
 
 
