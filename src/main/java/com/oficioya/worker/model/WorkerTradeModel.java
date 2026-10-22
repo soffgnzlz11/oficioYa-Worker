@@ -1,11 +1,15 @@
 package com.oficioya.worker.model;
 
 import java.math.BigDecimal;
+import jakarta.validation.constraints.*;
 
 public class WorkerTradeModel {
     private Long id;
+    @NotNull
     private BigDecimal approxRate;
+    @NotNull
     private RateUnit rateUnit;
+    @NotNull
     private TradeModel trade;
 
     public WorkerTradeModel() {

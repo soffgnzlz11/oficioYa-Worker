@@ -1,10 +1,14 @@
 package com.oficioya.worker.model;
 
+import jakarta.validation.constraints.*;
+
 public class TradeModel {
     private Long id;
+    @NotBlank
     private String name;
     private String description;
     private boolean active;
+    @NotNull
     private TradeCategoryModel category;
 
     public TradeModel() {
