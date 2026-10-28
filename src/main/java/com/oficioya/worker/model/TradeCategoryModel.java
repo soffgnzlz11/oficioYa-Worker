@@ -1,7 +1,10 @@
 package com.oficioya.worker.model;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class TradeCategoryModel {
     private Long id;
+    @NotBlank
     private String name;
     private String detail;
 

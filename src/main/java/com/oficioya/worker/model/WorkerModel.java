@@ -6,13 +6,19 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import jakarta.validation.constraints.*;
+import jakarta.validation.*;
+
 public class WorkerModel {
 
     private Long id;
+    @NotNull
     private Long userId;
     private WorkerStatus status;
     private boolean availableNow;
     private Set<Long> zoneIds = new HashSet<>();
+    @NotNull
+    @Valid
     private WorkerTradeModel primaryTrade;
     private List<WorkerTradeModel> secondaryTrades = new ArrayList<>();
     private List<AvailabilitySlotModel> slots = new ArrayList<>();
