@@ -5,6 +5,7 @@ import com.oficioya.worker.service.WorkerTradeService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -20,6 +21,7 @@ public class WorkerTradeController {
         this.workerTradeService = workerTradeService;
     }
 
+    @PreAuthorize("hasRole('TRABAJADOR') and @workerOwnership.isOwner(#workerId, authentication)")
     @PostMapping("/trades")
     @Operation(summary = "Agregar oficio secundario", description = "Asocia un oficio secundario al trabajador")
     public ResponseEntity<WorkerTradeModel> addSecondary(@PathVariable Long workerId,
@@ -27,6 +29,7 @@ public class WorkerTradeController {
         return ResponseEntity.status(HttpStatus.CREATED).body(workerTradeService.addSecondary(workerId, model));
     }
 
+    @PreAuthorize("hasRole('TRABAJADOR') and @workerOwnership.isOwner(#workerId, authentication)")
     @PutMapping("/trades/{workerTradeId}")
     @Operation(summary = "Actualizar oficio del trabajador", description = "Modifica la información de un oficio asociado al trabajador")
     public ResponseEntity<WorkerTradeModel> update(@PathVariable Long workerId,
@@ -35,6 +38,7 @@ public class WorkerTradeController {
         return ResponseEntity.ok(workerTradeService.update(workerId, workerTradeId, model));
     }
 
+    @PreAuthorize("hasRole('TRABAJADOR') and @workerOwnership.isOwner(#workerId, authentication)")
     @DeleteMapping("/trades/{workerTradeId}")
     @Operation(summary = "Eliminar oficio secundario", description = "Quita un oficio secundario del trabajador")
     public ResponseEntity<Void> deleteSecondary(@PathVariable Long workerId,
@@ -43,6 +47,7 @@ public class WorkerTradeController {
         return ResponseEntity.noContent().build();
     }
 
+    @PreAuthorize("hasRole('TRABAJADOR') and @workerOwnership.isOwner(#workerId, authentication)")
     @PutMapping("/primary-trade/{workerTradeId}")
     @Operation(summary = "Cambiar oficio principal", description = "Define cuál de los oficios del trabajador es el principal")
     public ResponseEntity<WorkerTradeModel> changePrimary(@PathVariable Long workerId,
