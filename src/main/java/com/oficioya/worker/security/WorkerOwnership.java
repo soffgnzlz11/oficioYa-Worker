@@ -1,0 +1,39 @@
+package com.oficioya.worker.security;
+
+import com.oficioya.worker.repository.WorkerRepository;
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Component;
+
+/**
+ * Reglas de propiedad que se usan desde @PreAuthorize, por ejemplo:
+ * {@code @PreAuthorize("hasRole('TRABAJADOR') and @workerOwnership.isOwner(#workerId, authentication)")}.
+ *
+ * Supone que el nombre del usuario autenticado (el "sub" del JWT) es el id del usuario,
+ * que es lo que guarda Worker.userId.
+ */
+@Component("workerOwnership")
+public class WorkerOwnership {
+
+    private final WorkerRepository workerRepository;
+
+    public WorkerOwnership(WorkerRepository workerRepository) {
+        this.workerRepository = workerRepository;
+    }
+
+    // true si el perfil de trabajador pertenece al usuario autenticado.
+    // Si el trabajador no existe deja pasar, para que el servicio responda 404.
+    public boolean isOwner(Long workerId, Authentication authentication) {
+        if (workerId == null || authentication == null) {
+            return false;
+        }
+        return workerRepository.findById(workerId)
+                .map(worker -> worker.getUserId().toString().equals(authentication.getName()))
+                .orElse(true);
+    }
+
+    // true si el userId enviado es el del usuario autenticado (no se crean perfiles para otros)
+    public boolean isSelf(Long userId, Authentication authentication) {
+        return userId != null && authentication != null
+                && userId.toString().equals(authentication.getName());
+    }
+}
