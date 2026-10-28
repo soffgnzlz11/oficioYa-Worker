@@ -5,6 +5,7 @@ import com.oficioya.worker.service.TradeService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -34,18 +35,23 @@ public class TradeController {
         return ResponseEntity.ok(tradeService.findById(id));
     }
 
+    // Solo el administrador gestiona el catálogo; las consultas quedan para cualquier usuario autenticado
+
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     @Operation(summary = "Crear oficio", description = "Registra un nuevo oficio")
     public ResponseEntity<TradeModel> create(@Valid @RequestBody TradeModel model) {
         return ResponseEntity.status(HttpStatus.CREATED).body(tradeService.create(model));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     @Operation(summary = "Actualizar oficio", description = "Modifica los datos de un oficio")
     public ResponseEntity<TradeModel> update(@PathVariable Long id, @Valid @RequestBody TradeModel model) {
         return ResponseEntity.ok(tradeService.update(id, model));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     @Operation(summary = "Desactivar oficio", description = "Inactiva el oficio; no se elimina físicamente")
     public ResponseEntity<Void> deactivate(@PathVariable Long id) {
