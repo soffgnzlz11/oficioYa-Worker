@@ -5,6 +5,7 @@ import com.oficioya.worker.service.WorkPhotoService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -28,6 +29,7 @@ public class WorkPhotoController {
         return ResponseEntity.ok(photoService.findAll(workerId));
     }
 
+    @PreAuthorize("hasRole('TRABAJADOR') and @workerOwnership.isOwner(#workerId, authentication)")
     @PostMapping
     @Operation(summary = "Agregar foto", description = "Registra una foto de un trabajo realizado")
     public ResponseEntity<WorkPhotoModel> create(@PathVariable Long workerId,
@@ -35,6 +37,7 @@ public class WorkPhotoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(photoService.create(workerId, model));
     }
 
+    @PreAuthorize("hasRole('TRABAJADOR') and @workerOwnership.isOwner(#workerId, authentication)")
     @DeleteMapping("/{photoId}")
     @Operation(summary = "Eliminar foto", description = "Elimina una foto del portafolio del trabajador")
     public ResponseEntity<Void> delete(@PathVariable Long workerId, @PathVariable Long photoId) {

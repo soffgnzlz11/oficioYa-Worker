@@ -5,6 +5,7 @@ import com.oficioya.worker.service.TradeCategoryService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -28,6 +29,7 @@ public class TradeCategoryController {
         return ResponseEntity.ok(categoryService.findAll());
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     @Operation(summary = "Crear categoría", description = "Registra una nueva categoría de oficios")
     public ResponseEntity<TradeCategoryModel> create(@Valid @RequestBody TradeCategoryModel model) {
